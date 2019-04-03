@@ -37,5 +37,11 @@ namespace Demo.Controllers
 
             return View("Index", products);
         }
+
+        [HttpGet]
+        public ActionResult Create()
+        {
+            return View();
+        }
     }
 }
