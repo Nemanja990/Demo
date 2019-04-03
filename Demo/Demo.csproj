@@ -173,6 +173,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Product\EditData.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
