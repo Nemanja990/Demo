@@ -1,0 +1,68 @@
+﻿[
+  {
+    "Id": "1",
+    "Name": "Top Gun",
+    "Description": "Cone ice cream",
+    "Category": "Sweets",
+    "Producer": "Frikom",
+    "Supplier": "Frikom",
+    "Price": "200"
+  },
+  {
+    "Id": "2",
+    "Name": "Nirvana",
+    "Description": "Ice cream in cup",
+    "Category": "Sweets",
+    "Producer": "Delta",
+    "Supplier": "Delta",
+    "Price": "300"
+  },
+  {
+    "Id": "3",
+    "Name": "Sweet",
+    "Description": "Tasty candy",
+    "Category": "Sweets",
+    "Producer": "Soko stark",
+    "Supplier": "Soko stark",
+    "Price": "30"
+  },
+  {
+    "Id": "4",
+    "Name": "Najlepse zelje",
+    "Description": "Chocolate",
+    "Category": "Sweets",
+    "Producer": "Soko stark",
+    "Supplier": "Soko stark",
+    "Price": "120"
+  },
+  {
+    "Id": "5",
+    "Name": "Bread",
+    "Description": "Basic ingredient",
+    "Category": "Food",
+    "Producer": "Homemade",
+    "Supplier": "Homemade",
+    "Price": "30"
+  }
+]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
