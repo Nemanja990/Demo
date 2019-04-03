@@ -43,5 +43,12 @@ namespace Demo.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Create(Product product)
+        {
+            products.Add(product);
+            return View("Index", products);
+        }
     }
 }
