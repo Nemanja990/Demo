@@ -185,6 +185,7 @@
     <Content Include="Views\Product\EditData.cshtml" />
     <Content Include="Views\Product\Create.cshtml" />
     <Content Include="Views\DatabaseProduct\Index.cshtml" />
+    <Content Include="Views\DatabaseProduct\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
