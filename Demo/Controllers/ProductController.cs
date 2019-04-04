@@ -10,24 +10,30 @@ namespace Demo.Controllers
 {
     public class ProductController : Controller
     {
-        public List<Product> products = LoadJson.LoadAllProducts();
+        private List<Product> _products;
+
+        public ProductController()
+        {
+            _products = LoadJson.LoadAllProducts();
+        }
+
         // GET: Product
         public ActionResult Index()
         {           
-            return View(products);
+            return View(_products);
         }
 
         [HttpGet]
         public ActionResult EditData(int id)
         {
-            var product = products.FirstOrDefault(x => x.Id == id);
+            var product = _products.FirstOrDefault(x => x.Id == id);
             return View(product);
         }
 
         [HttpPost]
         public ActionResult EditData(Product product)
         {
-            var ToBeChanged = products.FirstOrDefault(x => x.Id == product.Id);
+            var ToBeChanged = _products.FirstOrDefault(x => x.Id == product.Id);
             ToBeChanged.Name = product.Name;
             ToBeChanged.Price = product.Price;
             ToBeChanged.Producer = product.Producer;
@@ -35,7 +41,7 @@ namespace Demo.Controllers
             ToBeChanged.Description = product.Description;
             ToBeChanged.Category = product.Category;
 
-            return View("Index", products);
+            return View("Index", _products);
         }
 
         [HttpGet]
@@ -47,8 +53,8 @@ namespace Demo.Controllers
         [HttpPost]
         public ActionResult Create(Product product)
         {
-            products.Add(product);
-            return View("Index", products);
+            _products.Add(product);
+            return View("Index", _products);
         }
     }
 }
