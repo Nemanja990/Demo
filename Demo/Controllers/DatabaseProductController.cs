@@ -34,34 +34,29 @@ namespace Demo.Controllers
         [HttpPost]
         public ActionResult Edit(Product product)
         {
-            List<Product> products = null;
             if (ModelState.IsValid)
             {
                 try
                 {
-                    using (_context)
+                    var toBeEdited = _context.Products.FirstOrDefault(x => x.Id == product.Id);
+                    if (toBeEdited != null)
                     {
-                        var toBeEdited = _context.Products.FirstOrDefault(x => x.Id == product.Id);
-                        if (toBeEdited != null)
-                        {
-                            toBeEdited.Name = product.Name;
-                            toBeEdited.Price = product.Price;
-                            toBeEdited.Producer = product.Producer;
-                            toBeEdited.Supplier = product.Supplier;
-                            toBeEdited.Category = product.Category;
-                            toBeEdited.Description = product.Description;
-                            _context.SaveChanges();
-                        }
-                        products = _context.Products.ToList();
+                        toBeEdited.Name = product.Name;
+                        toBeEdited.Price = product.Price;
+                        toBeEdited.Producer = product.Producer;
+                        toBeEdited.Supplier = product.Supplier;
+                        toBeEdited.Category = product.Category;
+                        toBeEdited.Description = product.Description;
+                        _context.SaveChanges();
                     }
                 }
                 catch (Exception ex)
                 {
                     throw ex;
-                }                
-            }          
-            
-            return View("Index", products);
+                }
+            }
+
+            return View("Index", _context.Products.ToList());
         }
 
         [HttpGet]
@@ -73,26 +68,20 @@ namespace Demo.Controllers
         [HttpPost]
         public ActionResult Create(Product product)
         {
-            List<Product> products = null;
             if (ModelState.IsValid)
             {
                 try
                 {
-                    using (_context)
-                    {
-                        _context.Products.Add(product);
-                        _context.SaveChanges();
-
-                        products = _context.Products.ToList();
-                    }
+                    _context.Products.Add(product);
+                    _context.SaveChanges();
                 }
                 catch (Exception ex)
                 {
                     throw ex;
-                }               
+                }
             }
 
-            return View("Index", products);
+            return View("Index", _context.Products.ToList());
         }
     }
 }

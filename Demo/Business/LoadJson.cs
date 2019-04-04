@@ -15,7 +15,7 @@ namespace Demo.Business
             List<Product> products = null;
             try
             {
-                var path = System.Web.HttpContext.Current.Server.MapPath("~/App_Data/JsonProducts.json");
+                var path = HttpContext.Current.Server.MapPath("~/App_Data/JsonProducts.json");
                 using (StreamReader rdr = new StreamReader(path))
                 {
                     string json = rdr.ReadToEnd();

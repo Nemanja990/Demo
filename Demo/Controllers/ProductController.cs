@@ -45,7 +45,7 @@ namespace Demo.Controllers
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
             
             return View("Index", _products);
