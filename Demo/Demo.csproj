@@ -184,10 +184,9 @@
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Product\EditData.cshtml" />
     <Content Include="Views\Product\Create.cshtml" />
+    <Content Include="Views\DatabaseProduct\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\DatabaseProduct\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

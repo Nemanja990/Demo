@@ -9,11 +9,11 @@ namespace Demo.Controllers
 {
     public class DatabaseProductController : Controller
     {
-        private readonly DataContext _context;
+        private DataContext _context;
 
-        public DatabaseProductController(DataContext context)
+        public DatabaseProductController()
         {
-            _context = context;
+            _context = new DataContext();
         }
 
         // GET: DatabaseProduct
