@@ -33,14 +33,21 @@ namespace Demo.Controllers
         [HttpPost]
         public ActionResult EditData(Product product)
         {
-            var ToBeChanged = _products.FirstOrDefault(x => x.Id == product.Id);
-            ToBeChanged.Name = product.Name;
-            ToBeChanged.Price = product.Price;
-            ToBeChanged.Producer = product.Producer;
-            ToBeChanged.Supplier = product.Supplier;
-            ToBeChanged.Description = product.Description;
-            ToBeChanged.Category = product.Category;
-
+            try
+            {
+                var ToBeChanged = _products.FirstOrDefault(x => x.Id == product.Id);
+                ToBeChanged.Name = product.Name;
+                ToBeChanged.Price = product.Price;
+                ToBeChanged.Producer = product.Producer;
+                ToBeChanged.Supplier = product.Supplier;
+                ToBeChanged.Description = product.Description;
+                ToBeChanged.Category = product.Category;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            
             return View("Index", _products);
         }
 
@@ -53,7 +60,15 @@ namespace Demo.Controllers
         [HttpPost]
         public ActionResult Create(Product product)
         {
-            _products.Add(product);
+            try
+            {
+                _products.Add(product);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            
             return View("Index", _products);
         }
     }
