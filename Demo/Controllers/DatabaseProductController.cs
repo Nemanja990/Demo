@@ -35,22 +35,49 @@ namespace Demo.Controllers
         public ActionResult Edit(Product product)
         {
             List<Product> products = null;
-            using (_context)
+            if (ModelState.IsValid)
             {
-                var toBeEdited = _context.Products.FirstOrDefault(x => x.Id == product.Id);
-                if (toBeEdited != null)
+                using (_context)
                 {
-                    toBeEdited.Name = product.Name;
-                    toBeEdited.Price = product.Price;
-                    toBeEdited.Producer = product.Producer;
-                    toBeEdited.Supplier = product.Supplier;
-                    toBeEdited.Category = product.Category;
-                    toBeEdited.Description = product.Description;
-                    _context.SaveChanges();
+                    var toBeEdited = _context.Products.FirstOrDefault(x => x.Id == product.Id);
+                    if (toBeEdited != null)
+                    {
+                        toBeEdited.Name = product.Name;
+                        toBeEdited.Price = product.Price;
+                        toBeEdited.Producer = product.Producer;
+                        toBeEdited.Supplier = product.Supplier;
+                        toBeEdited.Category = product.Category;
+                        toBeEdited.Description = product.Description;
+                        _context.SaveChanges();
+                    }
+                    products = _context.Products.ToList();
                 }
-                products = _context.Products.ToList();
-            }
+            }          
             
+            return View("Index", products);
+        }
+
+        [HttpGet]
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(Product product)
+        {
+            List<Product> products = null;
+            if (ModelState.IsValid)
+            {
+                using (_context)
+                {
+                    _context.Products.Add(product);
+                    _context.SaveChanges();
+
+                    products = _context.Products.ToList();
+                }
+            }
+
             return View("Index", products);
         }
     }
